@@ -11,8 +11,6 @@
   - [[#lsp][LSP]]
 - [[#options][Options]]
 - [[#key-bindings][Key bindings]]
-  - [[#editing][Editing]]
-  - [[#repl][Repl]]
 
 * Description
 This layer adds support for [[https://julialang.org][Julia]] to Spacemacs.
@@ -31,6 +29,10 @@ add =julia= to the existing =dotspacemacs-configuration-layers= list in this
 file.
 
 ** LSP
+Warning: enabling the LSP functionality within this package can cause emacs to
+hang for significant lengths of time when opening a Julia file. See tip below on
+using PackageCompiler.jl to mitigate this issue.
+
 This layer can be used with [[https://github.com/JuliaEditorSupport/LanguageServer.jl][=LanguageServer.jl=]] and emacs [[https://github.com/emacs-lsp/lsp-mode][=lsp-mode=]] to provide
 richer, IDE-like capabilities. To use this layer with lsp, you must do the
 following:
@@ -72,30 +74,13 @@ and then install this layer with:
 
 * Key bindings
 
-| Key Binding | Description                                          |
-|-------------+------------------------------------------------------|
-| ~SPC m h h~ | Calls ~@doc~ macro on symbol under cursor.           |
-| ~SPC m e m~ | Expands macro under cursor.                          |
-| ~SPC m w~   | Calls ~workspace()~ in Repl to give clean namespace. |
-| ~SPC e l~   | Expands latex macro (e.g. =\delta=).                 |
-
-** Editing
-
-| Key Binding | Description                                               |
-|-------------+-----------------------------------------------------------|
-| ~SPC m s b~ | Sends buffer to REPL                                      |
-| ~SPC m s l~ | Sends line to REPL                                        |
-| ~SPC m s r~ | Sends region to REPL                                      |
-| ~SPC m r~   | Brings up Julia Repl (starts new one or focuses existing) |
-
-** Repl
-
-| Key Binding | Description   |
-|-------------+---------------|
-| ~SPC m '~   | Edit current. |
-
-# Use GitHub URLs if you wish to link a Spacemacs documentation file or its heading.
-# Examples:
-# [[https://github.com/syl20bnr/spacemacs/blob/master/doc/VIMUSERS.org#sessions]]
-# [[https://github.com/syl20bnr/spacemacs/blob/master/layers/%2Bfun/emoji/README.org][Link to Emoji layer README.org]]
-# If space-doc-mode is enabled, Spacemacs will open a local copy of the linked file.
+| Key Binding | Description                                                |
+|-------------+------------------------------------------------------------|
+| ~SPC m h h~ | Calls ~@doc~ macro on symbol under cursor.                 |
+| ~SPC m e m~ | Expands macro under cursor.                                |
+| ~SPC m w~   | Calls ~workspace()~ in Repl to give clean namespace.       |
+| ~SPC e l~   | Expands latex macro (e.g. =\delta=).                       |
+| ~SPC m s b~ | Sends buffer to REPL.                                      |
+| ~SPC m s l~ | Sends line to REPL.                                        |
+| ~SPC m s r~ | Sends region to REPL.                                      |
+| ~SPC m r~   | Brings up Julia Repl (starts new one or focuses existing). |
