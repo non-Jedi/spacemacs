@@ -49,31 +49,19 @@
             (spacemacs/register-repl 'julia-repl 'julia-repl
                                      "julia-repl"))
     :config (progn
-              (add-hook 'julia-repl-hook #'julia-repl-mode)
               (spacemacs/declare-prefix-for-mode 'julia-repl-mode
-                "mh" "help")
-              (spacemacs/declare-prefix-for-mode 'julia-repl-mode
-                "me" "eval")
+                "ms" "send")
               (spacemacs/set-leader-keys-for-minor-mode
                 'julia-repl-mode
                 "'" 'julia-repl-edit
                 "hh" 'julia-repl-doc
                 "w" 'julia-repl-workspace
                 "em" 'julia-repl-macroexpand
-                ;; this command comes from julia-mode
-                "el" 'julia-latexsub)
-              (spacemacs/declare-prefix-for-mode 'julia-mode
-                "ms" "send")
-              (spacemacs/set-leader-keys-for-major-mode
-                'julia-mode
                 "r"  'julia-repl
                 "si" 'julia-repl
                 "sb" 'julia-repl-send-buffer
                 "sl" 'julia-repl-send-line
                 "sr" 'julia-repl-send-region-or-line
-                "'"  'julia-repl-edit
-                "hh" 'julia-repl-doc
-                "w"  'julia-repl-workspace
                 "em" 'julia-repl-macroexpand))))
 
 (defun julia/init-lsp-julia ()
